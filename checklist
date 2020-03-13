@@ -1,0 +1,69 @@
+PC-01
+IP 192.168.0.10
+Máscara 255.255.255.0
+GATEWAY 192.168.0.1
+MUDAR O NOME DO PC NA TOPOLOGIA
+
+
+PC-02
+IP 172.16.0.10
+Máscara 255.255.0.0
+GATEWAY 172.16.0.1
+MUDAR O NOME DO PC NA TOPOLOGIA
+
+
+SW-01
+Hostname [hostname SW-01]
+Banner [banner motd "ACESSO APENAS PARA PESSOAS AUTORIZADAS"]
+Criar usuário local [username juliocesar pivilege 15 secret JULIO*user]
+Senha da Enable [enable secret JULIO*enable]
+Senha da Console [password JULIO*console]
+Domínio [ip domain-name 1rede-local] 
+Chave de Criptografia [crypto key generate rsa general-key modulus 1024]
+Senha da VTY [password JULIO*vty]
+Ativar login local na Console [login local]
+Ativar login local na VTY [login local]
+Encriptar as senhas [service password-encryption]
+IP na VLAN 1
+  IP 192.168.255.254
+  MÁSCARA 255.255.255.0
+  Ativar a interface [no shutdown]
+Inserir o gateway [ip default-gateway 192.168.0.1]
+
+
+SW-02
+Hostname [hostname SW-02]
+Banner [banner motd "ACESSO APENAS PARA PESSOAS AUTORIZADAS"]
+Criar usuário local [username juliocesar pivilege 15 secret JULIO*user]
+Senha da Enable [enable secret JULIO*enable]
+Senha da Console [password JULIO*console]
+Domínio [ip domain-name 1rede-local] 
+Chave de Criptografia [crypto key generate rsa general-key modulus 1024]
+Senha da VTY [password JULIO*vty]
+Ativar login local na Console [login local]
+Ativar login local na VTY [login local]
+Encriptar as senhas [service password-encryption]
+IP na VLAN 1
+  IP 172.16.0.254
+  MÁSCARA 255.255.0.0
+  Ativar a interface [no shutdown]
+Inserir o gateway [ip default-gateway 172.16.0.1]
+
+
+RT-01
+Hostname [hostname RT-01]
+Banner (banner motd "ACESSO APENAS PARA PESSOAS AUTORIZADAS")
+Criar usuário local (username mariaeduapivilege 15 secret JULIO*user)
+Senha da Enable (enable secret MARIA*enable)
+Senha da Console (password MARIA*console)
+Domínio (ip domain-name 1rede-local)
+Chave de Criptografia (crypto key generate rsa general-key modulus 1024)
+Senha da VTY (password JULIO*vty)
+Ativar login local na Console (login local)
+Ativar login local na VTY (login local)
+Encriptar as senhas (service password-encryption)
+IP da REDE 1 e REDE 2
+  IP gig 0/0  192.168.0.1  255.255.255.0
+  IP gig 0/1  172.16.0.1  255.255.0.0
+  Ativar a interface [no shutdown]
+  
