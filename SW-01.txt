@@ -1,0 +1,25 @@
+SCRIPT SW-01
+enable
+configure terminal
+hostname SW-01
+banner mtdo "ACESSO APENAS PARA PESSOAS AUTORIZADAS"
+username juliocesar privilege 15 secret JULIO*user
+enable secret JULIO*enable
+line console 0
+password JULIO*console
+login local
+exit
+ip domain-name 1rede.local
+crypto key generate rsa general-key modulus 1024
+line vty 0 15
+transport input ssh
+password JULIO*vty
+login local
+exit
+service password-encryption
+interface vlan 1
+ip address 192.168.255.254 255.255.255.0
+no shutdown
+ip default-gateway 192.168.0.1
+end
+wr
