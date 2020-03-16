@@ -23,3 +23,4 @@ no shutdown
 ip default-gateway 192.168.0.1
 end
 wr
+exit
